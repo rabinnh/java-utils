@@ -32,7 +32,7 @@ Simply include the resulting urlfetch jar file in your project. Then import the 
 
 The FetchTest.java file provides a good example.
 
-Note that the return is a HashMap<STring, Object> with three keys: "success" (boolean true or false). "httpcode" (if there was one), and "content" (the results).
+Note that the return is a HashMap<String, Object> with three keys: "success" (boolean true or false). "httpcode" (if there was one), and "content" (the results).
 "content" will contain a stacktrace if one occurred during the call.
 
 
