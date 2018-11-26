@@ -283,6 +283,7 @@ public class HttpFetch {
 						.build();
 			} catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
 				mResult.put("success", false);
+                mResult.put("httpcode", "N/A");
 				mResult.put("content", GetStackTraceAsString(e));
 			}
 		} else {
