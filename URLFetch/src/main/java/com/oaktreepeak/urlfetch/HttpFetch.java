@@ -116,7 +116,7 @@ public class HttpFetch {
 	 */
 	@SuppressWarnings("unused")
 	public HashMap<String, Object> URLFetch(String sURL, String sUser, String sPW, List<NameValuePair> postParams,
-			boolean bIgnoreCerts) {
+			boolean bIgnoreCerts, String sRealm) {
 		
 		HashMap<String, Object> mResult = new HashMap<String, Object>();
 
@@ -160,7 +160,7 @@ public class HttpFetch {
 			}
 
 			// Add credentials for digest header
-			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_UNAUTHORIZED) {
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_UNAUTHORIZED && sRealm != null) {
 				// Change to just pass user and password
 				Header authHeader = response.getFirstHeader(AUTH.WWW_AUTH);
 				HeaderElement[] element = authHeader.getElements();
@@ -172,7 +172,7 @@ public class HttpFetch {
 						authCache.put(targetHost, new BasicScheme());
 					} else if (element[0].getName().startsWith("Digest")) {
 						DigestScheme digestScheme = new DigestScheme();
-						digestScheme.overrideParamter("realm", "thermostat");
+						digestScheme.overrideParamter("realm", sRealm);
 						digestScheme.processChallenge(authHeader);
 						authCache.put(targetHost, digestScheme);
 					}
@@ -283,7 +283,7 @@ public class HttpFetch {
 						.build();
 			} catch (KeyManagementException | NoSuchAlgorithmException | KeyStoreException e) {
 				mResult.put("success", false);
-                mResult.put("httpcode", "N/A");
+				mResult.put("httpcode", "N/A");
 				mResult.put("content", GetStackTraceAsString(e));
 			}
 		} else {

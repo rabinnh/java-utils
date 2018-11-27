@@ -22,14 +22,14 @@ public class FetchTest {
 		
 		// POST
 		String sPostURL = "https://192.168.2.80/settings?pin=9999";
-		m = d.URLFetch(sPostURL, "user", "pw", postParameters, true);
+		m = d.URLFetch(sPostURL, "user", "pw", postParameters, true, "thermostat");
 		for (HashMap.Entry<String, Object> entry : m.entrySet()) {
 			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 		}
 
 		// GET
 		String sGetURL = "https://192.168.0.80/query/info";
-		m = d.URLFetch(sGetURL, "user", "pw", null, true);
+		m = d.URLFetch(sGetURL, "user", "pw", null, true, "thermostat");
 		for (HashMap.Entry<String, Object> entry : m.entrySet()) {
 			System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
 		}
