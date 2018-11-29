@@ -1,6 +1,6 @@
 # URLFetch
 
-This small project uses the encapsulates fetching a URL using GET, POST, SSL or not, Basic and Digest authorization.
+This small project encapsulates fetching a URL using GET, POST, SSL or not, Basic and Digest authorization.
 ## Description
 
 ### Purpose
