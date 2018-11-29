@@ -1,7 +1,6 @@
 # URLFetch
 
-This small project uses the api.iextrading.com stock API to fetch and retrieve stock prices for Conky
-
+This small project uses the encapsulates fetching a URL using GET, POST, SSL or not, Basic and Digest authorization.
 ## Description
 
 ### Purpose
@@ -15,6 +14,8 @@ URLFetch is a simple Maven Java project that solves the main issues that I see p
 * Fetch a URL using SSL and ignore an invalid (self-signed) certificate
 * Fetch a URL using GET
 * Fetch a URL using POST with variables
+* Authenticate with Basic
+* Authenticate with Digest
 
 ## Building
 
