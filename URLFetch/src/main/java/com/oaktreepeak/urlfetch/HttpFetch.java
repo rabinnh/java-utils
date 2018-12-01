@@ -215,6 +215,7 @@ public class HttpFetch {
 							System.out.println(sURL + " : " + inputLine);
 						}
 					}
+					in.close();
 					mResult.put("success", true);
 					mResult.put("httpcode", response.getStatusLine());
 					mResult.put("content", contentBuffer);
